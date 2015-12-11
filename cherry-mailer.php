@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:  Cherry Mailer
- * Plugin URI:
- * Description: ShortCode for Mailer
+ * Plugin URI: http://www.cherryframework.com/
+ * Description: ShortCode for MailChimp
  * Version: 1.0.0
- * Author: Cherry
+ * Author: Cherry Team
  * Author URI: http://www.cherryframework.com/
  * Text Domain: cherry-portfolio
  *
@@ -129,7 +129,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 			// Get options
 			$this->get_options();
 
-			$this->options_list = Mailer_Options::get_instance();
+			//$this->options_list = Mailer_Options::get_instance();
 
 			// Need for generate shortcode view
 			add_action( 'wp_ajax_cherry_mailer_generator_view', array( &$this, 'generator_view' ) );
@@ -222,7 +222,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		 * @return array             Modified array.
 		 */
 		public function shortcodes( $shortcodes ) {
-
+			$this->get_options();
 			$shortcodes[ self::$name ] = array(
 					'name'  => __( 'Mailer', 'cherry-mailer' ), // Shortcode name.
 					'desc'  => __( 'Mailer shortcode', 'cherry-mailer' ),
@@ -233,26 +233,31 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 									'default' => '',
 									'name'    => __( 'Button', 'cherry-mailer' ),
 									'desc'    => __( 'Enter button title', 'cherry-mailer' ),
+									'default' => $this->options['button_text'],
 							),
 							'placeholder' => array(
 									'default' => '',
 									'name'    => __( 'Placeholder', 'cherry-mailer' ),
 									'desc'    => __( 'Enter placeholder for email input', 'cherry-mailer' ),
+									'default' => $this->options['placeholder'],
 							),
 							'success_message' => array(
 									'default' => '',
 									'name'    => __( 'Success message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter success message', 'cherry-mailer' ),
+									'default' => $this->options['success_message'],
 							),
 							'fail_message' => array(
 									'default' => '',
 									'name'    => __( 'Fail message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter fail message', 'cherry-mailer' ),
+									'default' => $this->options['fail_message'],
 							),
 							'warning_message' => array(
 									'default' => '',
 									'name'    => __( 'Warning message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter warning message', 'cherry-mailer' ),
+									'default' => $this->options['warning_message'],
 							),
 							'template' => array(
 									'type'   => 'select',
@@ -476,6 +481,10 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		 * @return void
 		 */
 		private function get_options() {
+
+			$this->options = $this->get_plugin_options();
+
+			/*
 			if ( $this->is_cherry_framework() ) {
 				$options = $this->get_cherry_options();
 			} else {
@@ -484,7 +493,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 
 			if ( ! empty( $options ) ) {
 				$this->options = $options;
-			}
+			}*/
 		}
 
 		/**
@@ -529,7 +538,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		 * @return void
 		 */
 		public function admin_menu() {
-			add_menu_page( 'Cherry Mailer Options', 'Cherry Mailer', 'manage_options', 'cherry-mailer-options', array( &$this, 'options_page' ), null, 10 );
+			add_menu_page( 'Cherry Mailer Options', 'Cherry Mailer', 'manage_options', 'cherry-mailer-options', array( &$this, 'options_page' ), 'dashicons-email-alt', 64 );
 		}
 
 		/**
@@ -692,7 +701,6 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		public function subscriber_add() {
 
 			$this->get_options();
-
 			/**
 			 * Default fail response
 			 */

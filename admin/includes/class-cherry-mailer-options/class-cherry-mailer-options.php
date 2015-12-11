@@ -144,5 +144,5 @@ if ( ! class_exists('Mailer_Options') ) {
 		}
 	}//end class
 
-	Mailer_Options::get_instance();
+	//Mailer_Options::get_instance();
 }
