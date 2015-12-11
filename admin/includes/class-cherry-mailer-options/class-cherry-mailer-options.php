@@ -119,7 +119,7 @@ if ( ! class_exists('Mailer_Options') ) {
 
 			$mailer_options = apply_filters( 'cherry_mailchimp_default_settings', $mailer_options );
 			$result_array['mailer-options-section'] = array(
-				'name'			=> __( 'Cherry MailChimp', 'cherry-mailer' ),
+				'name'			=> __( 'Cherry Mailer', 'cherry-mailer' ),
 				'icon' 			=> 'dashicons dashicons-format-gallery',
 				'priority'		=> 120,
 				'options-list'	=> $mailer_options,
