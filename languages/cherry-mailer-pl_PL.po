@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: blank\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-11 17:43+0200\n"
+"PO-Revision-Date: 2015-12-11 17:43+0200\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;__;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"Last-Translator: \n"
+"Language: pl_PL\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cherry-Mailer.php:165
+msgid "Mailer"
+msgstr ""
+
+msgid "Cherry Mailer"
+msgstr ""
+
+#: cherry-Mailer.php:166
+msgid "Mailer shortcode"
+msgstr ""
+
+#: cherry-Mailer.php:172
+msgid "Button"
+msgstr ""
+
+#: cherry-Mailer.php:173
+msgid "Enter button title"
+msgstr ""
+
+#: cherry-Mailer.php:177 cherry-Mailer.php:294
+msgid "Placeholder"
+msgstr ""
+
+#: cherry-Mailer.php:178
+msgid "Enter placeholder for email input"
+msgstr ""
+
+#: cherry-Mailer.php:183 cherry-Mailer.php:306 views/options_page.php:43
+msgid "Success message"
+msgstr ""
+
+#: cherry-Mailer.php:142 views/options_page.php:44
+msgid "Enter success message"
+msgstr ""
+
+#: cherry-Mailer.php:187 cherry-Mailer.php:312 views/options_page.php:48
+msgid "Fail message"
+msgstr ""
+
+#: cherry-Mailer.php:259 cherry-Mailer.php:482 views/options_page.php:50
+msgid "Subscribed failed"
+msgstr ""
+
+#: cherry-Mailer.php:188 cherry-Mailer.php:484 views/options_page.php:49
+msgid "Enter fail message"
+msgstr ""
+
+#: cherry-Mailer.php:192 cherry-Mailer.php:318 cherry-Mailer.php:491
+#: views/options_page.php:53
+msgid "Warning message"
+msgstr ""
+
+#: cherry-Mailer.php:193 cherry-Mailer.php:492 views/options_page.php:54
+msgid "Enter warning message"
+msgstr ""
+
+#: cherry-Mailer.php:260 cherry-Mailer.php:490 views/options_page.php:55
+msgid "Email is incorect"
+msgstr ""
+
+#: cherry-Mailer.php:256 includes/cherry-Mailer-data.php:59
+msgid "Subscribe"
+msgstr ""
+
+#: cherry-Mailer.php:257 cherry-Mailer.php:458
+#: includes/cherry-Mailer-data.php:60
+msgid "Enter your email"
+msgstr ""
+
+#: cherry-Mailer.php:474 views/options_page.php:45
+msgid "Subscribed successfully"
+msgstr ""
+
+#: views/options_page.php:18
+msgid "Api Key"
+msgstr ""
+
+#: views/options_page.php:19
+msgid "Set your Api Key"
+msgstr ""
+
+msgid "Press this box for read more information on the mailer knowledge base."
+msgstr ""
+
+msgid ""
+"API stands for application programming interface. It can be helpful to think "
+"of the API as a way for different apps to talk to one another."
+msgstr ""
+
+msgid ""
+"Each Mailer list has a unique List ID that integrations, plugins, and "
+"widgets may require to connect and transfer subscriber data."
+msgstr ""
+
+#: views/options_page.php:23
+msgid "List"
+msgstr ""
+
+#: views/options_page.php:24
+msgid "Subscribe list id"
+msgstr ""
+
+#: views/options_page.php:28
+msgid "Confirmation"
+msgstr ""
+
+#: views/options_page.php:29
+msgid "Email confirmation"
+msgstr ""
+
+#: views/options_page.php:34
+msgid "Default placeholder for email input"
+msgstr ""
+
+#: views/options_page.php:39
+msgid "Default submit button text"
+msgstr ""
+
+#: views/options_page.php:43
+msgid "Default success message"
+msgstr ""
+
+#: views/options_page.php:48
+msgid "Default fail message"
+msgstr ""
+
+#: views/options_page.php:16
+msgid "Default warning message"
+msgstr ""
+
+#: views/options_page.php:72
+msgid "Plugin options"
+msgstr ""
+
+#: views/options_page.php:62
+msgid "CONNECT"
+msgstr ""
+
+#: views/options_page.php:65
+msgid "DISCONNECT"
+msgstr ""
+
+#: views/options_page.php:144
+msgid "Save options"
+msgstr ""
+
+msgid "Options have been saved"
+msgstr ""
+
+msgid "Error"
+msgstr ""
