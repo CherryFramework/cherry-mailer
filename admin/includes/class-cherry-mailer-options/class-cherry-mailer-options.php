@@ -22,7 +22,8 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // If class 'MailChimp_Options' not exists.
-if ( ! class_exists('Mailer_Options') ) {
+if ( ! class_exists( 'Mailer_Options' ) ) {
+
 	/**
 	 * Define Options class for Cherry FrameWork
 	 */
@@ -58,7 +59,7 @@ if ( ! class_exists('Mailer_Options') ) {
 		 * @since 1.0.0
 		 * @return array
 		 */
-		public function cherry_mailer_settings($result_array ) {
+		public function cherry_mailer_settings( $result_array ) {
 			$mailer_options = array();
 
 			$mailer_options[ self::$name . '_apikey' ] = array(
@@ -143,6 +144,5 @@ if ( ! class_exists('Mailer_Options') ) {
 			return self::$instance;
 		}
 	}//end class
-
 	//Mailer_Options::get_instance();
 }

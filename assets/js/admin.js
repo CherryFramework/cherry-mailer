@@ -95,7 +95,7 @@ function genereateShortcode( target ) {
  * @param target
  * @param result
  */
-function pasteShortcode(target, result ) {
+function pasteShortcode( target, result ) {
     var shortcode = genereateShortcode( target );
     result.val( shortcode );
 }
