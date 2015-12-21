@@ -57,6 +57,12 @@ jQuery( document ).ready( function() {
     });
 });
 
+/**
+ * Generate shortcode
+ *
+ * @param target
+ * @returns {string}
+ */
 function genereateShortcode( target ) {
 
     var mask      = target.data( 'input_mask' ),
@@ -83,11 +89,20 @@ function genereateShortcode( target ) {
     return result;
 }
 
-function pasteShortcode( target, result ) {
+/**
+ * Insert shortcode in textarea
+ *
+ * @param target
+ * @param result
+ */
+function pasteShortcode(target, result ) {
     var shortcode = genereateShortcode( target );
     result.val( shortcode );
 }
 
+/**
+ * Generate view of ShortCode Generator
+ */
 function cherrymailerGeneratorView() {
     jQuery.post( window.cherryMailerParam.ajaxurl, { action: 'cherry_mailer_generator_view' },
         function( response ) {
@@ -128,6 +143,11 @@ function cherrymailerGeneratorView() {
         });
 }
 
+/**
+ * Show message
+ * @param type
+ * @param message
+ */
 function noticeCreate( type, message ) {
     var
         notice = jQuery( '<div class="notice-box ' + type + '"><span class="dashicons"></span><div class="inner">' + message + '</div></div>' ),
