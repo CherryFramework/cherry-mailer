@@ -85,6 +85,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 				'apikey'            => '',
 				'list'              => '',
 				'confirm'           => '',
+				'popup_is'          => 'true',
 				'placeholder'       => '',
 				'button_text'       => '',
 				'success_message'   => '',
@@ -223,6 +224,12 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		 */
 		public function shortcodes( $shortcodes ) {
 			$this->get_options();
+			$placeholder        = empty( $this->options['placeholder'] )        ? __( 'Enter your email', 'cherry-mailer' )          : $this->options['placeholder'];
+			$button_text        = empty( $this->options['button_text'] )        ? __( 'Subscribe', 'cherry-mailer' )                 : $this->options['button_text'];
+			$success_message    = empty( $this->options['success_message'] )    ? __( 'Subscribed successfully', 'cherry-mailer' )   : $this->options['success_message'];
+			$fail_message       = empty( $this->options['fail_message'] )       ? __( 'Subscribed failed', 'cherry-mailer' )         : $this->options['fail_message'];
+			$warning_message    = empty( $this->options['warning_message'] )    ? __( 'Email is incorect', 'cherry-mailer' )         : $this->options['warning_message'];
+			$popup_is           = empty( $this->options['popup_is '] )          ? __( 'true', 'cherry-mailer' )                      : $this->options['popup_is '];
 			$shortcodes[ self::$name ] = array(
 					'name'  => __( 'Mailer', 'cherry-mailer' ), // Shortcode name.
 					'desc'  => __( 'Mailer shortcode', 'cherry-mailer' ),
@@ -230,34 +237,39 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 					'group' => 'other', // Can be 'content', 'box', 'media' or 'other'. Groups can be mixed
 					'atts'  => array( // List of shortcode params (attributes).
 							'button_text' => array(
-									'default' => '',
 									'name'    => __( 'Button', 'cherry-mailer' ),
 									'desc'    => __( 'Enter button title', 'cherry-mailer' ),
-									'default' => $this->options['button_text'],
+									'default' => $button_text,
 							),
 							'placeholder' => array(
-									'default' => '',
 									'name'    => __( 'Placeholder', 'cherry-mailer' ),
 									'desc'    => __( 'Enter placeholder for email input', 'cherry-mailer' ),
-									'default' => $this->options['placeholder'],
+									'default' => $placeholder,
 							),
 							'success_message' => array(
-									'default' => '',
 									'name'    => __( 'Success message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter success message', 'cherry-mailer' ),
-									'default' => $this->options['success_message'],
+									'default' => $success_message,
 							),
 							'fail_message' => array(
-									'default' => '',
 									'name'    => __( 'Fail message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter fail message', 'cherry-mailer' ),
-									'default' => $this->options['fail_message'],
+									'default' => $fail_message,
 							),
 							'warning_message' => array(
-									'default' => '',
 									'name'    => __( 'Warning message', 'cherry-mailer' ),
 									'desc'    => __( 'Enter warning message', 'cherry-mailer' ),
-									'default' => $this->options['warning_message'],
+									'default' => $warning_message,
+							),
+							'popup_is' => array(
+								'type'   => 'select',
+								'name'    => __( 'Type', 'cherry-mailer' ),
+								'desc'    => __( 'Switch popup or content', 'cherry-mailer' ),
+								'values' => array(
+									'true' => 'popup',
+									'false' => 'content',
+								),
+								'default' => $popup_is,
 							),
 							'template' => array(
 									'type'   => 'select',
@@ -325,6 +337,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 					'success_message'   => __( 'Subscribed successfully', 'cherry-mailer' ),
 					'fail_message'     	=> __( 'Subscribed failed', 'cherry-mailer' ),
 					'warning_message'   => __( 'Email is incorect', 'cherry-mailer' ),
+					'popup_is'          => 'true',
 					'template'       	=> 'default.tmpl',
 					'col_xs'         	=> '12',
 					'col_sm'         	=> '6',
@@ -408,6 +421,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 			$postdata['success_message'] 	= $callbacks->get_success_message();
 			$postdata['fail_message']   	= $callbacks->get_fail_message();
 			$postdata['warning_message']    = $callbacks->get_warning_message();
+			$postdata['popup_is']           = $callbacks->get_popup_is();
 			return $postdata;
 		}
 
@@ -538,7 +552,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 		 * @return void
 		 */
 		public function admin_menu() {
-			add_menu_page( 'Cherry Mailer Options', 'Cherry Mailer', 'manage_options', 'cherry-mailer-options', array( &$this, 'options_page' ), 'dashicons-email-alt', 64 );
+			add_menu_page( 'Cherry Mailer Options', 'Cherry Mailer', 'manage_options', 'cherry-mailer-options', array( &$this, 'options_page' ), 'dashicons-email-alt', 110 );
 		}
 
 		/**
@@ -659,6 +673,18 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 								'value' => $warning_message,
 								'label' => __( 'Warning message', 'cherry-team' ),
 								'desc'  => __( 'Enter warning message', 'cherry-mailer' ),
+							),
+							array(
+								'name'  => 'popup_is',
+								'id'    => 'popup_is',
+								'type'  => 'select',
+								'options' => array(
+									'true' => 'popup',
+									'false' => 'content',
+								),
+								'default' => 'true',
+								'label' => __( 'Type', 'cherry-team' ),
+								'desc'  => __( 'Popup or content', 'cherry-mailer' ),
 							),
 						),
 						'icon'      => 'envelope',

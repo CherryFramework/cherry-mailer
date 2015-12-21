@@ -111,6 +111,19 @@ class Cherry_Mailer_Template_Callbacks {
 	}
 
 	/**
+	 * Get type form
+	 *
+	 * @since 1.0.0
+	 */
+	public function get_popup_is() {
+		$return = $this->atts['popup_is'];
+		if ( empty( $return ) ) {
+			return $this->get_option( 'popup_is' );
+		}
+		return $return;
+	}
+
+	/**
 	 * Get plugin options
 	 *
 	 * @since 1.0.0

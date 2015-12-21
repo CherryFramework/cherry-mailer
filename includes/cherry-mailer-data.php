@@ -67,7 +67,8 @@ class Cherry_Mailer_Data {
 				'placeholder'    	=> __( 'enter your email', 'cherry-mailer' ),
 				'success_message'   => __( 'Successfully', 'cherry-mailer' ),
 				'fail_message'     	=> __( 'Failed', 'cherry-mailer' ),
-				'warning_message'   => __( 'Warning!', 'cherry-mailer' ),
+				'warning_message'   => __( 'Warning', 'cherry-mailer' ),
+				'is_popup'          => __( 'true', 'cherry-mailer' ),
 				'template'       	=> 'default.tmpl',
 				'col_xs'         	=> '12',
 				'col_sm'         	=> '6',
@@ -80,18 +81,24 @@ class Cherry_Mailer_Data {
 		$output = '';
 
 		// The Display.
-		$output .= '<a class="subscribe-popup-link" href="#cherry-mailer-form">';
-		$output .= $args['button_text'];
-		$output .= '</a>';
+		if ( 'true' == $args['popup_is'] ) { // if popup
+			$output .= '<a class="subscribe-popup-link" href="#cherry-mailer-form">';
+			$output .= $args['button_text'];
+			$output .= '</a>';
 
-		$output .= '<div class="cherry-mailer-container">';
+			$output .= '<div class="cherry-mailer-container">';
+		}
+
 		$output .= '<form id="cherry-mailer-form">';
 		$output .= '<input type="hidden" name="action" value="mailersubscribe">';
 
 		$output .= $this->get_mailer_loop( $args );
 
 		$output .= '</form>';
-		$output .= '</div>';
+
+		if ( 'true' == $args['popup_is'] ) { // if popup
+			$output .= '</div>';
+		}
 
 		return $output;
 	}

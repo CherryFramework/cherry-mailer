@@ -29,6 +29,15 @@ $fields = array(
 									'description'  => __( 'Email confirmation', 'cherry-mailer' ),
 									'value'        => __( '', 'cherry-mailer' ),
 								),
+	'popup_is'           => array(
+									'title'        => __( 'Type', 'cherry-mailer' ),
+									'description'  => __( 'Default popup', 'cherry-mailer' ),
+									'value'        => __( 'true', 'cherry-mailer' ),
+									'options'      => array (
+										'true'  => 'popup',
+										'false' => 'content',
+									),
+	),
 	'placeholder'       => array(
 									'title'        => __( 'Placeholder', 'cherry-mailer' ),
 									'description'  => __( 'Default placeholder for email input', 'cherry-mailer' ),
@@ -105,6 +114,16 @@ if ( $this->check_apikey() ) {
 
 									'style'		=> 'normal',
 							)
+					);
+				} elseif ( 'popup_is' == $field ) {
+					$popup_is = empty( $options['popup_is'] ) ? 'true' : $options['popup_is'];
+					$ui_{$field} = new UI_Select(
+						array(
+							'id'				=> 'popup_is',
+							'name'				=> 'popup_is',
+							'value'				=> $popup_is,
+							'options'			=> $strings['options'],
+						)
 					);
 				} else {
 					$value = empty( $options[ $field ] ) ? $strings['value'] : $options[ $field ];
