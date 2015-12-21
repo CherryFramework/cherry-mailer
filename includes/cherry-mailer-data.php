@@ -53,7 +53,7 @@ class Cherry_Mailer_Data {
 	 * @param  string|array $args Arguments.
 	 * @return string
 	 */
-	public function the_mailer($args = '' ) {
+	public function the_mailer( $args = '' ) {
 		/**
 		 * Filter the array of default arguments.
 		 *
@@ -163,8 +163,8 @@ class Cherry_Mailer_Data {
 	 * @param  array $atts output attributes.
 	 * @return array
 	 */
-	function setup_template_data( $atts ) {
-		require_once('class-cherry-mailer-template-callbacks.php');
+	public function setup_template_data( $atts ) {
+		require_once( 'class-cherry-mailer-template-callbacks.php' );
 		$callbacks = new Cherry_Mailer_Template_Callbacks( $atts );
 		$data = array(
 			'placeholder' 		=> array( $callbacks, 'get_placeholder' ),

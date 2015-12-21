@@ -127,7 +127,7 @@ class Cherry_Mailer_Template_Callbacks {
 	 * Get plugin options
 	 *
 	 * @since 1.0.0
-	 * @return void
+	 * @return array
 	 */
 	private function get_option( $key ) {
 		if ( $this->is_cherry_framework() ) {
@@ -151,5 +151,4 @@ class Cherry_Mailer_Template_Callbacks {
 
 		return false;
 	}
-
 }
