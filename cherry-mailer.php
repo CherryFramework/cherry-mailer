@@ -542,7 +542,7 @@ if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 				$options = $this->options;
 			} else {
 				foreach ( $this->options as $key => $value ) {
-					$options[ $key ] = ! empty ( $options[ $key ] ) ? $options[ $key ] : '';
+					$options[ $key ] = ! empty( $options[ $key ] ) ? $options[ $key ] : '';
 				}
 			}
 			return $options;
