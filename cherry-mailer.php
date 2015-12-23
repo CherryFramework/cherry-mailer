@@ -411,7 +411,7 @@ if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 		 * @param  array $atts     shortcode attributes.
 		 * @return array
 		 */
-		public function add_mailer_data($postdata, $post_id, $atts ) {
+		public function add_mailer_data( $postdata, $post_id, $atts ) {
 			require_once( '/includes/class-cherry-mailer-template-callbacks.php' );
 			$callbacks = new Cherry_Mailer_Template_Callbacks( $atts );
 			$postdata['placeholder']   		= $callbacks->get_placeholder();
@@ -496,7 +496,8 @@ if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 
 			$this->options = $this->get_plugin_options();
 
-			/* If ( $this->is_cherry_framework() ) {
+			/*
+			If ( $this->is_cherry_framework() ) {
 				$options = $this->get_cherry_options();
 			} else {
 				$options = $this->get_plugin_options();
