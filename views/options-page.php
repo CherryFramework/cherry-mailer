@@ -33,7 +33,7 @@ $fields = array(
 									'title'        => __( 'Type', 'cherry-mailer' ),
 									'description'  => __( 'Default popup', 'cherry-mailer' ),
 									'value'        => __( 'true', 'cherry-mailer' ),
-									'options'      => array (
+									'options'      => array(
 										'true'  => 'popup',
 										'false' => 'content',
 									),

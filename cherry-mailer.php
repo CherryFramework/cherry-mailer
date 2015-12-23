@@ -13,15 +13,15 @@
  * @since 1.0.0
  */
 
-if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
+if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 	// simple api class for MailChimp from https://github.com/drewm/mailchimp-api/blob/master/src/Drewm/MailChimp.php
-	require_once('includes/mailchimp-api.php');
+	require_once( 'includes/mailchimp-api.php' );
 
 	// shortcode frontend generation
-	require_once('includes/cherry-mailer-data.php');
+	require_once( 'includes/cherry-mailer-data.php' );
 
 	// cherry options page
-	require_once('admin/includes/class-cherry-mailer-options/class-cherry-mailer-options.php');
+	require_once( 'admin/includes/class-cherry-mailer-options/class-cherry-mailer-options.php' );
 
 	/**
 	 * Set constant path to the plugin directory.
@@ -129,8 +129,6 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 
 			// Get options
 			$this->get_options();
-
-			//$this->options_list = Mailer_Options::get_instance();
 
 			// Need for generate shortcode view
 			add_action( 'wp_ajax_cherry_mailer_generator_view', array( &$this, 'generator_view' ) );
@@ -498,8 +496,7 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 
 			$this->options = $this->get_plugin_options();
 
-			/*
-			if ( $this->is_cherry_framework() ) {
+			/* If ( $this->is_cherry_framework() ) {
 				$options = $this->get_cherry_options();
 			} else {
 				$options = $this->get_plugin_options();
@@ -507,7 +504,8 @@ if ( ! class_exists('Cherry_Mailer_Shortcode') ) {
 
 			if ( ! empty( $options ) ) {
 				$this->options = $options;
-			}*/
+			}
+			*/
 		}
 
 		/**
