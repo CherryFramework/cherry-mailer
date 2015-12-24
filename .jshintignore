@@ -17,3 +17,4 @@ admin/includes/class-cherry-shortcode-generator/ui/
 admin/includes/class-cherry-shortcode-generator/assets/js/min/shortode-generator.min.js
 admin/includes/class-cherry-shortcode-generator/assets/js/jquery.magnific-popup.js
 admin/includes/class-cherry-shortcode-generator/assets/js/min/jquery.magnific-popup.min.js
+admin/includes/class-cherry-shortcode-generator/assets/js/shortode-generator.js
