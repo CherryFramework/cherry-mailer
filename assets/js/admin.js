@@ -68,7 +68,7 @@ function genereateShortcode( target ) {
     var shortcode = target.data( 'shortcode' ),
         sType     = target.data( 'type' ),
         $attrForm = jQuery( '.cherry-sg-popup_fields', target ),
-        atts      = $attrForm.serializeArray()
+        atts      = $attrForm.serializeArray(),
         result;
 
     result = '[' + shortcode;
