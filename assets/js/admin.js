@@ -65,13 +65,10 @@ jQuery( document ).ready( function() {
  */
 function genereateShortcode( target ) {
 
-    var mask      = target.data( 'input_mask' ),
-        shortcode = target.data( 'shortcode' ),
+    var shortcode = target.data( 'shortcode' ),
         sType     = target.data( 'type' ),
         $attrForm = jQuery( '.cherry-sg-popup_fields', target ),
-        atts      = $attrForm.serializeArray(),
-        attName,
-        val,
+        atts      = $attrForm.serializeArray()
         result;
 
     result = '[' + shortcode;
@@ -176,7 +173,7 @@ function noticeCreate( type, message ) {
     function reposition() {
         var topDelta = 100;
 
-        jQuery( jQuery( '.notice-box' ).get().reverse() ).each( function( index ) {
+        jQuery( jQuery( '.notice-box' ).get().reverse() ).each( function() {
             jQuery( this ).css( { top: topDelta } );
             topDelta += jQuery( this ).outerHeight( true );
         });
