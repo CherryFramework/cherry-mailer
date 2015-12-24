@@ -211,6 +211,9 @@ if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 			 */
 			$tag = apply_filters( self::$name . '_shortcode_name', self::$name );
 			add_shortcode( $tag, array( $this, 'do_shortcode' ) );
+
+			$tag_alternative = apply_filters( self::$name . '_shortcode_name', 'cherry_' . self::$name );
+			add_shortcode( $tag_alternative, array( $this, 'do_shortcode' ) );
 		}
 
 		/**
@@ -608,6 +611,7 @@ if ( ! class_exists( 'Cherry_Mailer_Shortcode' ) ) {
 
 			// Include ui-elements
 			include trailingslashit( CHERRY_MAILER_DIR ) . '/admin/lib/ui-elements/ui-text/ui-text.php';
+			include trailingslashit( CHERRY_MAILER_DIR ) . '/admin/lib/ui-elements/ui-select/ui-select.php';
 			include trailingslashit( CHERRY_MAILER_DIR ) . '/admin/lib/ui-elements/ui-switcher/ui-switcher.php';
 			include trailingslashit( CHERRY_MAILER_DIR ) . '/admin/lib/ui-elements/ui-textarea/ui-textarea.php';
 			include trailingslashit( CHERRY_MAILER_DIR ) . '/admin/lib/ui-elements/ui-tooltip/ui-tooltip.php';
