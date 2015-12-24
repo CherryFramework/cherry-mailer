@@ -108,7 +108,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 						if ( $this->settings['value'] && ! empty( $this->settings['value'] ) ) {
 							foreach ( $this->settings['value'] as $key => $value ) {
 								$selected_state = selected( $value, $option, false );
-								if ( $selected_state == " selected='selected'" ){
+								if ( " selected='selected'" == $selected_state  ) {
 									break;
 								}
 							}
@@ -120,7 +120,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 						foreach ( $option_value['group_options'] as $group_item => $group_value ) {
 							foreach ( $this->settings['value'] as $key => $value ) {
 								$selected_state = selected( $value, $group_item, false );
-								if ( $selected_state == " selected='selected'" ){
+								if ( " selected='selected'" == $selected_state ) {
 									break;
 								}
 							}
